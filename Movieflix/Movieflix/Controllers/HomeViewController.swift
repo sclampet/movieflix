@@ -9,6 +9,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    // MARK: Exposed
+    
+    // MARK: Private
     private var movies: [Movie] = []
     private var primaryView: HomeView?
     private let moviesHttpService: MoviesHttpService

@@ -32,6 +32,9 @@
 		603E48F724546E6E00E54B7F /* MainCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48F624546E6E00E54B7F /* MainCoordinatorTests.swift */; };
 		603E48F924546F2200E54B7F /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48F824546F2200E54B7F /* MockNavigationController.swift */; };
 		603E48FB2454702100E54B7F /* MockMoviesHttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48FA2454702100E54B7F /* MockMoviesHttpService.swift */; };
+		603E49022454928D00E54B7F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E49012454928D00E54B7F /* HomeViewControllerTests.swift */; };
+		603E4906245496DA00E54B7F /* MoviesRowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E4905245496DA00E54B7F /* MoviesRowCollectionViewCell.swift */; };
+		603E490924549DCD00E54B7F /* HomeViewMoviesRowCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E490824549DCD00E54B7F /* HomeViewMoviesRowCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		603E48F624546E6E00E54B7F /* MainCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorTests.swift; sourceTree = "<group>"; };
 		603E48F824546F2200E54B7F /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
 		603E48FA2454702100E54B7F /* MockMoviesHttpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMoviesHttpService.swift; sourceTree = "<group>"; };
+		603E49012454928D00E54B7F /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		603E4905245496DA00E54B7F /* MoviesRowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRowCollectionViewCell.swift; sourceTree = "<group>"; };
+		603E490824549DCD00E54B7F /* HomeViewMoviesRowCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewMoviesRowCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,7 @@
 		603E48A72452713B00E54B7F /* Movieflix */ = {
 			isa = PBXGroup;
 			children = (
+				603E4904245496C700E54B7F /* Cells */,
 				603E48F22453653100E54B7F /* Views */,
 				603E48EF2453636200E54B7F /* Controllers */,
 				603E48EA245342F400E54B7F /* Coordinators */,
@@ -136,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				603E48D72452787F00E54B7F /* Mocks */,
+				603E48FE2454926A00E54B7F /* Controllers */,
 				603E48F524546E5F00E54B7F /* Coordinators */,
 				603E48D42452780600E54B7F /* Services */,
 				603E48BF2452713C00E54B7F /* MovieflixTests.swift */,
@@ -212,6 +220,7 @@
 		603E48F22453653100E54B7F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				603E490724549DB800E54B7F /* CollectionViews */,
 				603E48F32453653800E54B7F /* HomeView.swift */,
 			);
 			path = Views;
@@ -223,6 +232,30 @@
 				603E48F624546E6E00E54B7F /* MainCoordinatorTests.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		603E48FE2454926A00E54B7F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				603E49012454928D00E54B7F /* HomeViewControllerTests.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		603E4904245496C700E54B7F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				603E4905245496DA00E54B7F /* MoviesRowCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		603E490724549DB800E54B7F /* CollectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				603E490824549DCD00E54B7F /* HomeViewMoviesRowCollectionView.swift */,
+			);
+			path = CollectionViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				603E48AD2452713B00E54B7F /* ViewController.swift in Sources */,
+				603E490924549DCD00E54B7F /* HomeViewMoviesRowCollectionView.swift in Sources */,
 				603E48E1245337A400E54B7F /* Secrets.swift in Sources */,
 				603E48CE2452737C00E54B7F /* MoviesService.swift in Sources */,
 				603E48F42453653800E54B7F /* HomeView.swift in Sources */,
@@ -334,6 +368,7 @@
 				603E48F12453637100E54B7F /* HomeViewController.swift in Sources */,
 				603E48DF2453376F00E54B7F /* HttpClient.swift in Sources */,
 				603E48E32453399200E54B7F /* MoviesHttpService.swift in Sources */,
+				603E4906245496DA00E54B7F /* MoviesRowCollectionViewCell.swift in Sources */,
 				603E48D3245274C100E54B7F /* MoviesDataStoreService.swift in Sources */,
 				603E48EC2453430100E54B7F /* Coordinator.swift in Sources */,
 				603E48A92452713B00E54B7F /* AppDelegate.swift in Sources */,
@@ -348,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				603E48D62452782000E54B7F /* MoviesDataStoreServiceTests.swift in Sources */,
+				603E49022454928D00E54B7F /* HomeViewControllerTests.swift in Sources */,
 				603E48E924533E5D00E54B7F /* MockHttpClient.swift in Sources */,
 				603E48D92452788900E54B7F /* MockDataStore.swift in Sources */,
 				603E48E724533DD300E54B7F /* MoviesHttpServiceTests.swift in Sources */,
