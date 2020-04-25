@@ -9,6 +9,6 @@
 import Foundation
 
 protocol MoviesService {
-    func getMovies() -> [Movie]
+    func getMovies(completion: @escaping ([Movie]) -> Void)
     func getMovie(id: String) -> Movie?
 }

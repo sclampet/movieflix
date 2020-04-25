@@ -15,29 +15,28 @@ class MoviesHttpService: MoviesService {
         self.httpClient = httpClient
     }
     
-    func getMovies() -> [Movie] {
+    func getMovies(completion: @escaping ([Movie]) -> Void)  {
         var movies: [Movie] = []
         let url = URLs.getMovies.url()
         
-        httpClient.get(url: url) { (data, response, error) in
-            if let error = error {
-                print("error getting movies: \(error.localizedDescription)")
-                return
-            }
-            
+        httpClient.get(url: url) { data, response, _ in
             if let responseData = data {
                 if let requestResponse = response as? HTTPURLResponse {
                     if requestResponse.statusCode == 200 {
-                        if let parsedMovies = try? JSONDecoder().decode([Movie].self, from: responseData) {
-                            movies = parsedMovies
-                            return
+                        if let json = try? JSONSerialization.jsonObject(with: responseData) as? [String: Any],
+                            let jsonArray = json["results"] as? [[String:Any]] {
+                            print(responseData)
+                            jsonArray.forEach { object in
+                                if let movie = Movie(json: object) {
+                                    movies.append(movie)
+                                }
+                            }
+                            completion(movies)
                         }
                     }
                 }
             }
         }
-        
-        return movies
     }
     
     func getMovie(id: String) -> Movie? {

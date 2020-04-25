@@ -19,8 +19,13 @@ class MoviesDataStoreServiceTests: XCTestCase {
     }
 
     func test_getMovies_dataStoreCallsElements() {
-        let _ = subject.getMovies()
+        var didCallGetMoviesCallback = false
         
+        subject.getMovies { result in
+            didCallGetMoviesCallback = true
+        }
+        
+        XCTAssertTrue(didCallGetMoviesCallback)
         XCTAssertEqual(mockDataStore.numberOfElementsInvokations, 1)
     }
     

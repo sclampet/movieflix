@@ -15,8 +15,8 @@ class MoviesDataStoreService<T: DataStore>: MoviesService where T.T == Movie {
         self.dataStore = dataStore
     }
     
-    func getMovies() -> [Movie] {
-        return dataStore.elements()
+    func getMovies(completion: @escaping ([Movie]) -> Void)  {
+        completion(dataStore.elements())
     }
     
     func getMovie(id: String) -> Movie? {

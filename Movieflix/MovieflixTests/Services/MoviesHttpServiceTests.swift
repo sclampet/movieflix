@@ -12,6 +12,7 @@ import XCTest
 class MoviesHttpServiceTests: XCTestCase {
     
     func test_getMovies_httpClientCallsGetAndCorrectlyParsesJSON() {
+        let dummyMovie = ["id": "", "title": "", "overview": ""]
         let happyHTTPResponse = HTTPURLResponse(
             url: URL(string: "www.googles.com")!,
             statusCode: 200,
@@ -22,19 +23,22 @@ class MoviesHttpServiceTests: XCTestCase {
         let mockHttpClient = MockHttpClient()
         mockHttpClient.nextResponse = happyHTTPResponse
         mockHttpClient.nextData = try? JSONEncoder().encode([
-            Movie(id: "", title: "", overview: "", posterPath: "", composedPosterPath: ""),
-            Movie(id: "", title: "", overview: "", posterPath: "", composedPosterPath: ""),
-            Movie(id: "", title: "", overview: "", posterPath: "", composedPosterPath: ""),
-            Movie(id: "", title: "", overview: "", posterPath: "", composedPosterPath: ""),
+            "results": [
+                dummyMovie,
+                dummyMovie
+            ]
         ])
+        var didCallGetMoviesCallback = false
         
         let subject = MoviesHttpService(httpClient: mockHttpClient)
         
-        let retrievedMovies = subject.getMovies()
+        subject.getMovies { result in
+            didCallGetMoviesCallback = true
+        }
         
+        XCTAssertTrue(didCallGetMoviesCallback)
         XCTAssertEqual(mockHttpClient.numberOfGetInvokations, 1)
-        XCTAssertEqual(mockHttpClient.lastURL!.pathComponents[1], "popular")
-        XCTAssertEqual(retrievedMovies.count, 4)
+        XCTAssertEqual(mockHttpClient.lastURL!.pathComponents[3], "popular")
     }
 
 }

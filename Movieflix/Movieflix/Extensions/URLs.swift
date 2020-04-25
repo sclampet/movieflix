@@ -19,16 +19,16 @@ enum URLs {
 
     func url() -> URL {
         let queryParams: [String: String] = [
-            "api_key": APIKey,
+            "api_key": APIKey
         ]
         
         var components = URLComponents()
         components.scheme = "https"
-        components.host = "api.themoviedb.org/3/movie"
+        components.host = "api.themoviedb.org"
         components.setQueryItems(with: queryParams)
 
         switch self {
-            case .getMovies: components.path = "/popular"
+            case .getMovies: components.path = "/3/movie/popular"
         }
 
         guard let url = components.url else {
