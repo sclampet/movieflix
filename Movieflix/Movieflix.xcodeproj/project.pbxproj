@@ -13,12 +13,8 @@
 		603E48B22452713B00E54B7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 603E48B12452713B00E54B7F /* Assets.xcassets */; };
 		603E48B52452713B00E54B7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 603E48B32452713B00E54B7F /* LaunchScreen.storyboard */; };
 		603E48C02452713C00E54B7F /* MovieflixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48BF2452713C00E54B7F /* MovieflixTests.swift */; };
-		603E48CC2452726400E54B7F /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48CB2452726400E54B7F /* DataStore.swift */; };
 		603E48CE2452737C00E54B7F /* MoviesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48CD2452737C00E54B7F /* MoviesService.swift */; };
 		603E48D1245273C400E54B7F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48D0245273C400E54B7F /* Movie.swift */; };
-		603E48D3245274C100E54B7F /* MoviesDataStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48D2245274C100E54B7F /* MoviesDataStoreService.swift */; };
-		603E48D62452782000E54B7F /* MoviesDataStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48D52452782000E54B7F /* MoviesDataStoreServiceTests.swift */; };
-		603E48D92452788900E54B7F /* MockDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48D82452788900E54B7F /* MockDataStore.swift */; };
 		603E48DC2453364A00E54B7F /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48DB2453364A00E54B7F /* URLs.swift */; };
 		603E48DF2453376F00E54B7F /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48DE2453376F00E54B7F /* HttpClient.swift */; };
 		603E48E1245337A400E54B7F /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48E0245337A400E54B7F /* Secrets.swift */; };
@@ -58,12 +54,8 @@
 		603E48BB2452713C00E54B7F /* MovieflixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieflixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		603E48BF2452713C00E54B7F /* MovieflixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieflixTests.swift; sourceTree = "<group>"; };
 		603E48C12452713C00E54B7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		603E48CB2452726400E54B7F /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		603E48CD2452737C00E54B7F /* MoviesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesService.swift; sourceTree = "<group>"; };
 		603E48D0245273C400E54B7F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		603E48D2245274C100E54B7F /* MoviesDataStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataStoreService.swift; sourceTree = "<group>"; };
-		603E48D52452782000E54B7F /* MoviesDataStoreServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesDataStoreServiceTests.swift; sourceTree = "<group>"; };
-		603E48D82452788900E54B7F /* MockDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataStore.swift; sourceTree = "<group>"; };
 		603E48DB2453364A00E54B7F /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		603E48DE2453376F00E54B7F /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		603E48E0245337A400E54B7F /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
@@ -155,9 +147,7 @@
 		603E48CA2452724000E54B7F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				603E48CB2452726400E54B7F /* DataStore.swift */,
 				603E48CD2452737C00E54B7F /* MoviesService.swift */,
-				603E48D2245274C100E54B7F /* MoviesDataStoreService.swift */,
 				603E48DE2453376F00E54B7F /* HttpClient.swift */,
 				603E48E22453399200E54B7F /* MoviesHttpService.swift */,
 			);
@@ -175,7 +165,6 @@
 		603E48D42452780600E54B7F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				603E48D52452782000E54B7F /* MoviesDataStoreServiceTests.swift */,
 				603E48E624533DD300E54B7F /* MoviesHttpServiceTests.swift */,
 			);
 			path = Services;
@@ -184,7 +173,6 @@
 		603E48D72452787F00E54B7F /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				603E48D82452788900E54B7F /* MockDataStore.swift */,
 				603E48E824533E5D00E54B7F /* MockHttpClient.swift */,
 				603E48F824546F2200E54B7F /* MockNavigationController.swift */,
 				603E48FA2454702100E54B7F /* MockMoviesHttpService.swift */,
@@ -364,12 +352,10 @@
 				603E48CE2452737C00E54B7F /* MoviesService.swift in Sources */,
 				603E48F42453653800E54B7F /* HomeView.swift in Sources */,
 				603E48D1245273C400E54B7F /* Movie.swift in Sources */,
-				603E48CC2452726400E54B7F /* DataStore.swift in Sources */,
 				603E48F12453637100E54B7F /* HomeViewController.swift in Sources */,
 				603E48DF2453376F00E54B7F /* HttpClient.swift in Sources */,
 				603E48E32453399200E54B7F /* MoviesHttpService.swift in Sources */,
 				603E4906245496DA00E54B7F /* MoviesRowCollectionViewCell.swift in Sources */,
-				603E48D3245274C100E54B7F /* MoviesDataStoreService.swift in Sources */,
 				603E48EC2453430100E54B7F /* Coordinator.swift in Sources */,
 				603E48A92452713B00E54B7F /* AppDelegate.swift in Sources */,
 				603E48EE2453435500E54B7F /* MainCoordinator.swift in Sources */,
@@ -382,10 +368,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				603E48D62452782000E54B7F /* MoviesDataStoreServiceTests.swift in Sources */,
 				603E49022454928D00E54B7F /* HomeViewControllerTests.swift in Sources */,
 				603E48E924533E5D00E54B7F /* MockHttpClient.swift in Sources */,
-				603E48D92452788900E54B7F /* MockDataStore.swift in Sources */,
 				603E48E724533DD300E54B7F /* MoviesHttpServiceTests.swift in Sources */,
 				603E48FB2454702100E54B7F /* MockMoviesHttpService.swift in Sources */,
 				603E48C02452713C00E54B7F /* MovieflixTests.swift in Sources */,
