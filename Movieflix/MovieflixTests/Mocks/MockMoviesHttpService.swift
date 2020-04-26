@@ -10,7 +10,7 @@
 
 class MockMoviesHttpService: MoviesHttpService {
     var numberOfGetMoviesInvokations = 0
-    override func getMovies(completion: @escaping ([Movie]) -> Void) {
+    override func getMovies(completion: @escaping ([String: [Movie]]) -> Void) {
         numberOfGetMoviesInvokations += 1
     }
     

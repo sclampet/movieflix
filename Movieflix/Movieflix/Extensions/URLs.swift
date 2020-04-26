@@ -15,7 +15,10 @@ extension URLComponents {
 }
 
 enum URLs {
-    case getMovies
+    case getPopularMovies
+    case getNowPlayingMovies
+    case getLatestMovies
+    case getTopRatedMovies
 
     func url() -> URL {
         let queryParams: [String: String] = [
@@ -28,7 +31,10 @@ enum URLs {
         components.setQueryItems(with: queryParams)
 
         switch self {
-            case .getMovies: components.path = "/3/movie/popular"
+            case .getPopularMovies: components.path = "/3/movie/popular"
+            case .getNowPlayingMovies: components.path = "/3/movie/now_playing"
+            case .getLatestMovies: components.path = "/3/movie/latest"
+            case .getTopRatedMovies: components.path = "/3/movie/top_rated"
         }
 
         guard let url = components.url else {

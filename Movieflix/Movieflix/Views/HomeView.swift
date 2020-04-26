@@ -9,7 +9,7 @@
 import UIKit
 
 class HomeView: UIView {
-    private let movies: [Movie]
+    private var movies: [String: [Movie]]
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let margin = CGFloat(12)
@@ -25,9 +25,9 @@ class HomeView: UIView {
         return layout
     }()
     
-    private var collectionView: UICollectionView!
+    var collectionView: UICollectionView!
     
-    init(movies: [Movie]) {
+    init(movies: [String: [Movie]]) {
         self.movies = movies
         
         super.init(frame: .zero)
@@ -73,7 +73,7 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesRow", for: indexPath) as! MoviesRowCollectionViewCell
-        cell.movies = movies
+//        cell.movies = movies
         return cell
     }
 }

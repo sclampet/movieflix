@@ -15,10 +15,10 @@ class MockHttpClient: HttpClient {
     var nextError: Error?
     
     var numberOfGetInvokations = 0
-    var lastURL: URL?
+    var lastURL: [URL]? = []
     func get(url: URL, callback: @escaping (Data?, URLResponse?, Error?) -> Void) {
         callback(nextData, nextResponse, nextError)
         numberOfGetInvokations += 1
-        lastURL = url
+        lastURL!.append(url)
     }
 }
