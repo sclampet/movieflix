@@ -8,11 +8,11 @@
 
 import UIKit
 
-let appDelegateClass: AnyClass = NSClassFromString("TestAppDelegate") ?? SceneDelegate.self
+let sceneDelegateClass: AnyClass = NSClassFromString("TestingSceneDelegate") ?? SceneDelegate.self
 
 UIApplicationMain(
     CommandLine.argc,
     CommandLine.unsafeArgv,
     nil,
-    NSStringFromClass(appDelegateClass)
+    NSStringFromClass(sceneDelegateClass)
 )
