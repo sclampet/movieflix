@@ -12,7 +12,13 @@ class HomeViewController: UIViewController {
     // MARK: Exposed
     
     // MARK: Private
-    private var movies: [String: [Movie]] = [:]
+    private var movies: [String: [Movie]] = [:] {
+        didSet {
+            DispatchQueue.main.async {
+                self.primaryView = HomeView(movies: self.movies)
+            }
+        }
+    }
     private var primaryView: HomeView?
     private let moviesHttpService: MoviesHttpService
     
@@ -22,16 +28,11 @@ class HomeViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         //Make sure we have movies before loading the view
-        let group = DispatchGroup()
-        group.enter()
         moviesHttpService.getMovies { [weak self] movies in
             guard let myself = self else { return }
             
             myself.movies = movies
-            group.leave()
         }
-
-        group.wait()
     }
     
     override func loadView() {
