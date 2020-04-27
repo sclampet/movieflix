@@ -12,17 +12,20 @@ struct Movie: Codable {
     let id: String
     let title: String?
     let overview: String?
+    let posterPath: String?
     
     init?(json: [String: Any]) {
         guard let id = json["id"] as? Int,
             let title = json["title"] as? String,
-            let overview = json["overview"] as? String else {
+            let overview = json["overview"] as? String,
+            let posterPath = json["poster_path"] as? String else {
                 return nil
         }
         
         self.id = String(id)
         self.title = title
         self.overview = overview
+        self.posterPath = posterPath
     }
 }
 
@@ -31,5 +34,6 @@ extension Movie {
         case id
         case title
         case overview
+        case posterPath
     }
 }

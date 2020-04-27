@@ -9,21 +9,15 @@
 import UIKit
 
 class HomeView: UIView {
-    private var movies: [String: [Movie]] {
-        didSet {
-            collectionView.reloadData()
-        }
-    }
+    private var movies: [String: [Movie]]
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let margin = CGFloat(12)
-        let interimItemSpacing = CGFloat(3)
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
         let width = (UIScreen.main.bounds.width - (margin * 2))
         let height = width * 0.5
         layout.itemSize = CGSize(width: width, height: height)
-        layout.minimumInteritemSpacing = interimItemSpacing
         layout.minimumLineSpacing = 14
         
         return layout
@@ -64,7 +58,7 @@ extension HomeView {
             collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
+            collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 }

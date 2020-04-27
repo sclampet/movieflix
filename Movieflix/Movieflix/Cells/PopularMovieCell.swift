@@ -10,46 +10,44 @@ import UIKit
 
 class PopularMovieCell: MovieCell {
     // MARK: Private
-    private let title: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     private let poster: UIImageView = {
-        let poster = UIImageView()
-        return poster
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .white
         layer.cornerRadius = (self.frame.size.width / 2)
         layer.masksToBounds = true
-        layer.borderColor = UIColor.cyan.cgColor
+        layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 2
         
         setupViews()
         constrainViews()
-        
     }
     
     override func setupViews() {
-        addSubview(title)
+        addSubview(poster)
     }
     
     override func constrainViews() {
         NSLayoutConstraint.activate([
-            title.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            title.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            poster.topAnchor.constraint(equalTo: self.topAnchor),
+            poster.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            poster.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            poster.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
     
     
     override func configure(forMovie movie: Movie) {
-        title.text = movie.title
+        if let posterURL = movie.posterPath,
+            let url = URL(string: "http://image.tmdb.org/t/p/w185\(posterURL)") {
+            poster.load(url: url)
+        }
     }
     
     required init?(coder: NSCoder) {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6031385F2457359000B93A6D /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6031385E2457359000B93A6D /* UIImageView.swift */; };
 		603E48A92452713B00E54B7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48A82452713B00E54B7F /* AppDelegate.swift */; };
 		603E48AB2452713B00E54B7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48AA2452713B00E54B7F /* SceneDelegate.swift */; };
 		603E48AD2452713B00E54B7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E48AC2452713B00E54B7F /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6031385E2457359000B93A6D /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		603E48A52452713B00E54B7F /* Movieflix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movieflix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		603E48A82452713B00E54B7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		603E48AA2452713B00E54B7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				603E48DB2453364A00E54B7F /* URLs.swift */,
+				6031385E2457359000B93A6D /* UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				603E48DF2453376F00E54B7F /* HttpClient.swift in Sources */,
 				603E48E32453399200E54B7F /* MoviesHttpService.swift in Sources */,
 				603E4906245496DA00E54B7F /* MovieCell.swift in Sources */,
+				6031385F2457359000B93A6D /* UIImageView.swift in Sources */,
 				60F082022455D11D00E607F8 /* main.swift in Sources */,
 				603E48EC2453430100E54B7F /* Coordinator.swift in Sources */,
 				603E48A92452713B00E54B7F /* AppDelegate.swift in Sources */,
