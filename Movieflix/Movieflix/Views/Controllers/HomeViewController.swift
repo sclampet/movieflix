@@ -10,15 +10,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     // MARK: Exposed
-    
-    // MARK: Private
-    private var movies: [String: [Movie]] = [:] {
+    var movies: [String: [Movie]] = [:] {
         didSet {
             DispatchQueue.main.async {
                 self.primaryView = HomeView(movies: self.movies)
+                self.loadView()
             }
         }
     }
+    
+    // MARK: Private
     private var primaryView: HomeView?
     private let moviesHttpService: MoviesHttpService
     
@@ -36,7 +37,7 @@ class HomeViewController: UIViewController {
     }
     
     override func loadView() {
-        primaryView = HomeView(movies: self.movies)
+        self.primaryView = HomeView(movies: self.movies)
         self.view = primaryView
     }
     

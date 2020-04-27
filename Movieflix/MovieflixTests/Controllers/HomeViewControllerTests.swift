@@ -18,5 +18,4 @@ class HomeViewControllerTests: XCTestCase {
         
         XCTAssertEqual(mockMoviesHttpService.numberOfGetMoviesInvokations, 1)
     }
-
 }

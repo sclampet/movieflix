@@ -9,7 +9,11 @@
 import UIKit
 
 class HomeView: UIView {
-    private var movies: [String: [Movie]]
+    private var movies: [String: [Movie]] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let margin = CGFloat(12)
@@ -31,7 +35,7 @@ class HomeView: UIView {
         self.movies = movies
         
         super.init(frame: .zero)
-        
+
         setupViews()
         constrainViews()
     }
@@ -50,7 +54,7 @@ extension HomeView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(MoviesRowCollectionViewCell.self, forCellWithReuseIdentifier: "moviesRow")
+        collectionView.register(MoviesRow.self, forCellWithReuseIdentifier: "moviesRow")
         
         self.addSubview(collectionView)
     }
@@ -72,8 +76,28 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesRow", for: indexPath) as! MoviesRowCollectionViewCell
-//        cell.movies = movies
+        let category: String
+        
+        switch indexPath.row {
+        case 0:
+            category = "popular"
+        case 1:
+            category = "nowPlaying"
+        case 2:
+            category = "latest"
+        case 3:
+            category = "topRated"
+        default:
+            print("unable to render movies for row: \(indexPath.row). using popular movies")
+            category = "popular"
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesRow", for: indexPath) as! MoviesRow
+
+        if let moviesForRow = movies[category] {
+            cell.configure(for: category, with: moviesForRow)
+        }
+
         return cell
     }
 }
