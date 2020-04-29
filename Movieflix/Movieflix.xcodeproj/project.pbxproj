@@ -34,6 +34,7 @@
 		603E490924549DCD00E54B7F /* MoviesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E490824549DCD00E54B7F /* MoviesRowView.swift */; };
 		60847DE22459F51C00093492 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60847DE12459F51C00093492 /* UIView.swift */; };
 		60847DE42459F60E00093492 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60847DE32459F60E00093492 /* UIColor.swift */; };
+		60847DE6245A256300093492 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60847DE5245A256300093492 /* UIImage.swift */; };
 		60F082002455D0F800E607F8 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F081FF2455D0F800E607F8 /* TestingSceneDelegate.swift */; };
 		60F082022455D11D00E607F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F082012455D11D00E607F8 /* main.swift */; };
 		60F0820A2455D9B600E607F8 /* TestingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F082092455D9B600E607F8 /* TestingRootViewController.swift */; };
@@ -83,6 +84,7 @@
 		603E490824549DCD00E54B7F /* MoviesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRowView.swift; sourceTree = "<group>"; };
 		60847DE12459F51C00093492 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		60847DE32459F60E00093492 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		60847DE5245A256300093492 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		60F081FF2455D0F800E607F8 /* TestingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneDelegate.swift; sourceTree = "<group>"; };
 		60F082012455D11D00E607F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		60F082092455D9B600E607F8 /* TestingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingRootViewController.swift; sourceTree = "<group>"; };
@@ -203,10 +205,11 @@
 		603E48DA2453363F00E54B7F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				60847DE32459F60E00093492 /* UIColor.swift */,
+				60847DE5245A256300093492 /* UIImage.swift */,
 				6031385E2457359000B93A6D /* UIImageView.swift */,
 				60847DE12459F51C00093492 /* UIView.swift */,
 				603E48DB2453364A00E54B7F /* URLs.swift */,
-				60847DE32459F60E00093492 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -371,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60F082112456442500E607F8 /* PopularMovieCell.swift in Sources */,
+				60847DE6245A256300093492 /* UIImage.swift in Sources */,
 				60847DE42459F60E00093492 /* UIColor.swift in Sources */,
 				603E48AD2452713B00E54B7F /* ViewController.swift in Sources */,
 				603E490924549DCD00E54B7F /* MoviesRowView.swift in Sources */,
