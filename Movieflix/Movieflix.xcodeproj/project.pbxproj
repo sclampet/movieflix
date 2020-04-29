@@ -127,10 +127,12 @@
 		603E48A72452713B00E54B7F /* Movieflix */ = {
 			isa = PBXGroup;
 			children = (
-				603E4904245496C700E54B7F /* Cells */,
-				603E48F22453653100E54B7F /* Views */,
 				603E48EA245342F400E54B7F /* Coordinators */,
+				603E48EF2453636200E54B7F /* Controllers */,
+				603E48F22453653100E54B7F /* Views */,
+				603E4904245496C700E54B7F /* Cells */,
 				603E48DA2453363F00E54B7F /* Extensions */,
+				60F082082455D9B000E607F8 /* Testing */,
 				603E48A82452713B00E54B7F /* AppDelegate.swift */,
 				603E48AA2452713B00E54B7F /* SceneDelegate.swift */,
 				603E48AC2452713B00E54B7F /* ViewController.swift */,
@@ -139,7 +141,6 @@
 				603E48B62452713B00E54B7F /* Info.plist */,
 				603E48CF245273BA00E54B7F /* Models */,
 				603E48CA2452724000E54B7F /* Services */,
-				60F082082455D9B000E607F8 /* Testing */,
 				603E48E0245337A400E54B7F /* Secrets.swift */,
 				60F082012455D11D00E607F8 /* main.swift */,
 			);
