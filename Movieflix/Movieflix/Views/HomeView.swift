@@ -9,7 +9,9 @@
 import UIKit
 
 class HomeView: UIView {
+    // MARK: Private Properties
     private var movies: [String: [Movie]]
+    private var collectionView: UICollectionView!
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let margin = CGFloat(12)
@@ -23,7 +25,6 @@ class HomeView: UIView {
         return layout
     }()
     
-    var collectionView: UICollectionView!
     
     init(movies: [String: [Movie]]) {
         self.movies = movies
@@ -39,6 +40,7 @@ class HomeView: UIView {
     }
 }
 
+// MARK: Private Methods
 extension HomeView {
     private func setupViews() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -82,8 +84,8 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
         case 3:
             category = "topRated"
         default:
-            print("unable to render movies for row: \(indexPath.row). using popular movies as default category")
             category = "popular"
+            print("unable to render movies for row: \(indexPath.row). using popular movies as default category")
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesRow", for: indexPath) as! MoviesRowView

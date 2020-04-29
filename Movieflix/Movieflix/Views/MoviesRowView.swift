@@ -12,8 +12,9 @@ class MoviesRowView: UICollectionViewCell {
     // MARK: Exposed
     
     // MARK: Private
-    private var movies: [Movie] = []
+    private var collectionView: UICollectionView!
     private var identifier: String = "popular"
+    private var movies: [Movie] = []
     private let movieCellId = "movieCell"
     private let popularCellId = "popularCell"
     private let title: UILabel = {
@@ -37,11 +38,10 @@ class MoviesRowView: UICollectionViewCell {
         return layout
     }()
     
-    private var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         setupViews()
         setupCollectionView()
         constrainViews()
@@ -50,7 +50,10 @@ class MoviesRowView: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+// MARK: Private Methods
+extension MoviesRowView {
     private func setupViews() {
         addSubview(title)
     }
@@ -80,12 +83,15 @@ class MoviesRowView: UICollectionViewCell {
             collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
+    
 }
 
 // MARK: CollectionView Delegate & Datasource
 extension MoviesRowView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count < 1 ? 6 : movies.count
+        return movies.count < 1
+            ? 6
+            : movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
