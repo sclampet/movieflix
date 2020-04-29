@@ -14,7 +14,6 @@ class MoviesRowView: UICollectionViewCell {
     // MARK: Private
     private var movies: [Movie] = []
     private var identifier: String = "popular"
-    private let loadingCellId = "loadingCell"
     private let movieCellId = "movieCell"
     private let popularCellId = "popularCell"
     private let title: UILabel = {
@@ -65,7 +64,6 @@ class MoviesRowView: UICollectionViewCell {
         collectionView.dataSource = self
         
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "movieCell")
-        collectionView.register(LoadingMovieCell.self, forCellWithReuseIdentifier: "loadingCell")
         collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: popularCellId)
         
         self.addSubview(collectionView)
@@ -93,26 +91,15 @@ extension MoviesRowView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { fatalError("collectionview has no layout") }
         
-        let cellId: String
-        let cellSize: CGSize
-        
-        switch identifier {
-        case "loading":
-            cellId = loadingCellId
-            cellSize = layout.itemSize
-        case "popular":
-            cellId = popularCellId
-            cellSize = CGSize(width: layout.itemSize.width, height: layout.itemSize.width)
-        default:
-            cellId = movieCellId
-            cellSize = layout.itemSize
-        }
-        print(movies.count)
+        let cellId = identifier == "popular" ? popularCellId : movieCellId
+        let cellSize = identifier == "popular"
+            ? CGSize(width: layout.itemSize.width, height: layout.itemSize.width)
+            : layout.itemSize
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCell
         cell.frame.size = cellSize
         
-        if cellId != loadingCellId {
+        if identifier != "loading" {
             cell.configure(forMovie: movies[indexPath.item])
         }
         

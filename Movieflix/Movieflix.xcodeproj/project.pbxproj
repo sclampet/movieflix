@@ -32,7 +32,8 @@
 		603E49022454928D00E54B7F /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E49012454928D00E54B7F /* HomeViewControllerTests.swift */; };
 		603E4906245496DA00E54B7F /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E4905245496DA00E54B7F /* MovieCell.swift */; };
 		603E490924549DCD00E54B7F /* MoviesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603E490824549DCD00E54B7F /* MoviesRowView.swift */; };
-		6059B3682459D9F800A4B8C6 /* LoadingMovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6059B3672459D9F800A4B8C6 /* LoadingMovieCell.swift */; };
+		60847DE22459F51C00093492 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60847DE12459F51C00093492 /* UIView.swift */; };
+		60847DE42459F60E00093492 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60847DE32459F60E00093492 /* UIColor.swift */; };
 		60F082002455D0F800E607F8 /* TestingSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F081FF2455D0F800E607F8 /* TestingSceneDelegate.swift */; };
 		60F082022455D11D00E607F8 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F082012455D11D00E607F8 /* main.swift */; };
 		60F0820A2455D9B600E607F8 /* TestingRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F082092455D9B600E607F8 /* TestingRootViewController.swift */; };
@@ -80,7 +81,8 @@
 		603E49012454928D00E54B7F /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
 		603E4905245496DA00E54B7F /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		603E490824549DCD00E54B7F /* MoviesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesRowView.swift; sourceTree = "<group>"; };
-		6059B3672459D9F800A4B8C6 /* LoadingMovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingMovieCell.swift; sourceTree = "<group>"; };
+		60847DE12459F51C00093492 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		60847DE32459F60E00093492 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		60F081FF2455D0F800E607F8 /* TestingSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSceneDelegate.swift; sourceTree = "<group>"; };
 		60F082012455D11D00E607F8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		60F082092455D9B600E607F8 /* TestingRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingRootViewController.swift; sourceTree = "<group>"; };
@@ -201,8 +203,10 @@
 		603E48DA2453363F00E54B7F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				603E48DB2453364A00E54B7F /* URLs.swift */,
 				6031385E2457359000B93A6D /* UIImageView.swift */,
+				60847DE12459F51C00093492 /* UIView.swift */,
+				603E48DB2453364A00E54B7F /* URLs.swift */,
+				60847DE32459F60E00093492 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -252,7 +256,6 @@
 		603E4904245496C700E54B7F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				6059B3672459D9F800A4B8C6 /* LoadingMovieCell.swift */,
 				603E4905245496DA00E54B7F /* MovieCell.swift */,
 				60F082102456442500E607F8 /* PopularMovieCell.swift */,
 			);
@@ -368,15 +371,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				60F082112456442500E607F8 /* PopularMovieCell.swift in Sources */,
+				60847DE42459F60E00093492 /* UIColor.swift in Sources */,
 				603E48AD2452713B00E54B7F /* ViewController.swift in Sources */,
 				603E490924549DCD00E54B7F /* MoviesRowView.swift in Sources */,
-				6059B3682459D9F800A4B8C6 /* LoadingMovieCell.swift in Sources */,
 				60F0820A2455D9B600E607F8 /* TestingRootViewController.swift in Sources */,
 				603E48E1245337A400E54B7F /* Secrets.swift in Sources */,
 				603E48CE2452737C00E54B7F /* MoviesService.swift in Sources */,
 				603E48F42453653800E54B7F /* HomeView.swift in Sources */,
 				603E48D1245273C400E54B7F /* Movie.swift in Sources */,
 				603E48F12453637100E54B7F /* HomeViewController.swift in Sources */,
+				60847DE22459F51C00093492 /* UIView.swift in Sources */,
 				603E48DF2453376F00E54B7F /* HttpClient.swift in Sources */,
 				603E48E32453399200E54B7F /* MoviesHttpService.swift in Sources */,
 				603E4906245496DA00E54B7F /* MovieCell.swift in Sources */,

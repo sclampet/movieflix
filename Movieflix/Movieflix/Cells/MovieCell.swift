@@ -20,9 +20,15 @@ class MovieCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .darkGray
+        backgroundColor = .clear
         setupViews()
         constrainViews()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        addGrayBackgroundGradient()
     }
 
     func setupViews() {
