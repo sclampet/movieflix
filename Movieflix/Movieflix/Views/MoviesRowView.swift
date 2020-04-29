@@ -1,5 +1,5 @@
 //
-//  MoviesRowView.swift
+//  MoviesRowViewView.swift
 //  Movieflix
 //
 //  Created by Scott Clampet on 4/25/20.
@@ -8,14 +8,15 @@
 
 import UIKit
 
-class MoviesRow: UICollectionViewCell {
+class MoviesRowView: UICollectionViewCell {
     // MARK: Exposed
     
     // MARK: Private
     private var movies: [Movie] = []
     private var identifier: String = "popular"
-    private let popularCellId = "popular"
+    private let loadingCellId = "loadingCell"
     private let movieCellId = "movieCell"
+    private let popularCellId = "popularCell"
     private let title: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 18)
@@ -63,8 +64,9 @@ class MoviesRow: UICollectionViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: popularCellId)
         collectionView.register(MovieCell.self, forCellWithReuseIdentifier: "movieCell")
+        collectionView.register(LoadingMovieCell.self, forCellWithReuseIdentifier: "loadingCell")
+        collectionView.register(PopularMovieCell.self, forCellWithReuseIdentifier: popularCellId)
         
         self.addSubview(collectionView)
     }
@@ -83,26 +85,42 @@ class MoviesRow: UICollectionViewCell {
 }
 
 // MARK: CollectionView Delegate & Datasource
-extension MoviesRow: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MoviesRowView: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return movies.count < 1 ? 6 : movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { fatalError("collectionview has no layout") }
         
-        let cellId = identifier == "popular" ? popularCellId : movieCellId
-        let cellSize = identifier == "popular" ? CGSize(width: layout.itemSize.width, height: layout.itemSize.width) : layout.itemSize
+        let cellId: String
+        let cellSize: CGSize
+        
+        switch identifier {
+        case "loading":
+            cellId = loadingCellId
+            cellSize = layout.itemSize
+        case "popular":
+            cellId = popularCellId
+            cellSize = CGSize(width: layout.itemSize.width, height: layout.itemSize.width)
+        default:
+            cellId = movieCellId
+            cellSize = layout.itemSize
+        }
+        print(movies.count)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MovieCell
         cell.frame.size = cellSize
-        cell.configure(forMovie: movies[indexPath.item])
+        
+        if cellId != loadingCellId {
+            cell.configure(forMovie: movies[indexPath.item])
+        }
         
         return cell
     }
 }
 
-extension MoviesRow {
+extension MoviesRowView {
     func configure(for identifier: String, with movies: [Movie]) {
         self.identifier = identifier
         self.movies = movies
@@ -116,6 +134,8 @@ extension MoviesRow {
             self.title.text = "Latest"
         case "topRated":
             self.title.text = "Top Rated"
+        case "loading":
+            self.title.text = "..."
         default:
             print("invalid identifier: \(identifier)")
         }

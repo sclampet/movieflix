@@ -48,7 +48,7 @@ extension HomeView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        collectionView.register(MoviesRow.self, forCellWithReuseIdentifier: "moviesRow")
+        collectionView.register(MoviesRowView.self, forCellWithReuseIdentifier: "moviesRow")
         
         self.addSubview(collectionView)
     }
@@ -82,14 +82,17 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
         case 3:
             category = "topRated"
         default:
-            print("unable to render movies for row: \(indexPath.row). using popular movies")
+            print("unable to render movies for row: \(indexPath.row). using popular movies as default category")
             category = "popular"
         }
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesRow", for: indexPath) as! MoviesRow
-
-        if let moviesForRow = movies[category] {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "moviesRow", for: indexPath) as! MoviesRowView
+        
+        if let moviesForRow = movies[category], moviesForRow.count > 0 {
             cell.configure(for: category, with: moviesForRow)
+        }
+        else {
+            cell.configure(for: "loading", with: [])
         }
 
         return cell
