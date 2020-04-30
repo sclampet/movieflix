@@ -19,6 +19,7 @@ class FeaturedMovieCell: UICollectionViewCell {
     
     private let posterTitle: UILabel = {
         let label = UILabel()
+        label.text = "1917"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 45)
         label.numberOfLines = 2
@@ -113,6 +114,8 @@ class FeaturedMovieCell: UICollectionViewCell {
     }
     
     private func setupViews() {
+        poster.load(url: URLs.defaultFeature.url())
+
         addSubviews(poster,
                     posterTitle,
                     myListView,
@@ -185,18 +188,6 @@ class FeaturedMovieCell: UICollectionViewCell {
 }
 
 extension FeaturedMovieCell {
-    func configure(forMovie movie: Movie) {
-        posterTitle.text = movie.title.uppercased()
-        
-        if let posterPath = movie.posterPath,
-            let url = URL(string: "http://image.tmdb.org/t/p/w185\(posterPath)") {
-            poster.load(url: url)
-        }
-        else {
-            poster.load(url: URLs.defaultFeature.url())
-        }
-    }
-    
     private func setupGradientLayers() {
         guard poster.layer.sublayers == nil else { return }
 

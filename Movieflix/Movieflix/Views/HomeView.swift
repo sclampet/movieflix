@@ -107,12 +107,7 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
 extension HomeView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: featuredMovieHeaderId, for: indexPath) as! FeaturedMovieCell
-        
-        if let popularMovies = movies["popular"], popularMovies.count > 0,
-            let randomMovie = popularMovies.randomElement() {
-            header.configure(forMovie: randomMovie)
-        }
-        
+
         return header
     }
     
