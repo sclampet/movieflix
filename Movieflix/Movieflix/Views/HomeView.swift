@@ -10,13 +10,14 @@ import UIKit
 
 class HomeView: UIView {
     // MARK: Private Properties
+    private let featuredMovieHeaderId = "featuredMovie"
     private var movies: [String: [Movie]]
     private var collectionView: UICollectionView!
     private let layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         let margin = CGFloat(12)
-        
         layout.sectionInset = UIEdgeInsets(top: 0, left: margin, bottom: 0, right: margin)
+
         let width = (UIScreen.main.bounds.width - (margin * 2))
         let height = width * 0.5
         layout.itemSize = CGSize(width: width, height: height)
@@ -50,6 +51,7 @@ extension HomeView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        collectionView.register(FeaturedMovieCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: featuredMovieHeaderId)
         collectionView.register(MoviesRowView.self, forCellWithReuseIdentifier: "moviesRow")
         
         self.addSubview(collectionView)
@@ -57,7 +59,7 @@ extension HomeView {
     
     private func constrainViews() {
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: self.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor)
@@ -98,5 +100,23 @@ extension HomeView: UICollectionViewDelegate, UICollectionViewDataSource {
         }
 
         return cell
+    }
+}
+
+// MARK: CollectionView Header
+extension HomeView: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: featuredMovieHeaderId, for: indexPath) as! FeaturedMovieCell
+        
+        if let popularMovies = movies["popular"], popularMovies.count > 0,
+            let randomMovie = popularMovies.randomElement() {
+            header.configure(forMovie: randomMovie)
+        }
+        
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: frame.width, height: frame.height / 1.5)
     }
 }

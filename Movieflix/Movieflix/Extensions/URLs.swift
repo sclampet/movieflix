@@ -19,6 +19,7 @@ enum URLs {
     case getNowPlayingMovies
     case getLatestMovies
     case getTopRatedMovies
+    case defaultFeature
 
     func url() -> URL {
         let queryParams: [String: String] = [
@@ -35,6 +36,10 @@ enum URLs {
             case .getNowPlayingMovies: components.path = "/3/movie/now_playing"
             case .getLatestMovies: components.path = "/3/movie/latest"
             case .getTopRatedMovies: components.path = "/3/movie/top_rated"
+            case .defaultFeature:
+                components.host = "image.tmdb.org"
+                components.path = "/t/p/w185/AuGiPiGMYMkSosOJ3BQjDEAiwtO.jpg"
+                components.queryItems = nil
         }
 
         guard let url = components.url else {
