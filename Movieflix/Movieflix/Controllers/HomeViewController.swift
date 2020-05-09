@@ -22,18 +22,28 @@ class HomeViewController: UIViewController {
     // MARK: Private
     private var primaryView: HomeView?
     private let moviesHttpService: MoviesHttpService
+    private let moviesDataStoreService: MoviesService
     
-    init(moviesHttpService: MoviesHttpService) {
+    init(moviesHttpService: MoviesHttpService, moviesDataStoreService: MoviesService) {
         self.moviesHttpService = moviesHttpService
+        self.moviesDataStoreService = moviesDataStoreService
         
         super.init(nibName: nil, bundle: nil)
         
         //Make sure we have movies before loading the view
-        moviesHttpService.getMovies { [weak self] movies in
-            guard let myself = self else { return }
-            
-            myself.movies = movies
-        }
+        moviesDataStoreService.getMovies(completion: { movies in
+            if movies.count > 0 {
+                self.movies = movies
+            }
+            else {
+                moviesHttpService.getMovies { [weak self] movies in
+                    guard let myself = self else { return }
+                    
+                    myself.movies = movies
+                    moviesDataStoreService.updateMovies(movies: movies)
+                }
+            }
+        })
     }
     
     override func loadView() {

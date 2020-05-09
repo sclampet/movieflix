@@ -12,15 +12,19 @@ class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     private let moviesHttpService: MoviesHttpService
+    private let moviesDataStoreService: MoviesService
     
     init(navigationController: UINavigationController,
-         moviesHttpService: MoviesHttpService) {
+         moviesHttpService: MoviesHttpService,
+         moviesDataStoreService: MoviesService) {
         self.navigationController = navigationController
         self.moviesHttpService = moviesHttpService
+        self.moviesDataStoreService = moviesDataStoreService
     }
     
     func start() {
-        let vc = HomeViewController(moviesHttpService: moviesHttpService)
+        let vc = HomeViewController(moviesHttpService: moviesHttpService,
+                                    moviesDataStoreService: moviesDataStoreService)
         navigationController.pushViewController(vc, animated: true)
     }
 }

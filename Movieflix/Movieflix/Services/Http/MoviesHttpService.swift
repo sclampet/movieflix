@@ -32,6 +32,8 @@ class MoviesHttpService: MoviesService {
     func getMovie(id: String) -> Movie? {
         return nil
     }
+    
+    func updateMovies(movies: [String : [Movie]]) {}
 }
 
 extension MoviesHttpService {

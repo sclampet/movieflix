@@ -16,12 +16,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let navigationController = UINavigationController()
+        //httpClient
         let httpClient = MoviesClient(session: URLSession(configuration: .default))
         let moviesHttpService = MoviesHttpService(httpClient: httpClient)
+        //dataStore
+        let dataStore = DataStoreImplementation<Movie>()
+        let moviesDataStoreService = MoviesDataStoreService(dataStore: dataStore)
+        
+        let navigationController = UINavigationController()
         
         mainCoordinator = MainCoordinator(navigationController: navigationController,
-                                          moviesHttpService: moviesHttpService)
+                                          moviesHttpService: moviesHttpService,
+                                          moviesDataStoreService: moviesDataStoreService)
         
         mainCoordinator?.start()
         

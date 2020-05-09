@@ -11,4 +11,5 @@ import Foundation
 protocol MoviesService {
     func getMovies(completion: @escaping ([String: [Movie]]) -> Void)
     func getMovie(id: String) -> Movie?
+    func updateMovies(movies: [String: [Movie]])
 }
