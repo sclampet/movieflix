@@ -51,6 +51,11 @@ class HomeViewController: UIViewController {
         self.view = primaryView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.edgesForExtendedLayout = .all
+        navigationController?.navigationBar.isHidden = true
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

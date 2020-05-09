@@ -9,10 +9,11 @@
 import UIKit
 
 enum Images: String {
-    case playButton = "PlayButton"
     case info = "Info"
     case play = "Play"
     case plus = "Plus"
+    case film = "Film"
+    case playButton = "PlayButton"
     
     var image: UIImage {
         let image = UIImage(named: self.rawValue) ?? UIImage()

@@ -51,6 +51,9 @@ extension HomeView {
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        
+        collectionView.contentInset.top = -UIApplication.shared.statusBarFrame.height
+        
         collectionView.register(FeaturedMovieCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: featuredMovieHeaderId)
         collectionView.register(MoviesRowView.self, forCellWithReuseIdentifier: "moviesRow")
         

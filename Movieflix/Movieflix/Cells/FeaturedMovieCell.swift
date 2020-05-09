@@ -131,7 +131,6 @@ class FeaturedMovieCell: UICollectionViewCell {
     
     private func constrainViews() {
         NSLayoutConstraint.activate([
-            //Poster
             poster.topAnchor.constraint(equalTo: self.topAnchor),
             poster.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.frame.height * -0.15),
             poster.leadingAnchor.constraint(equalTo: self.leadingAnchor),
