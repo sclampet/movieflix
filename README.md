@@ -1,6 +1,6 @@
 # Movieflix (WIP)
 ## Overview
-[Movieflix](https://github.com/sclampet) a common iOS Developer take-home project example. The basic requirements for the app are to display movie data from [themoviedb.org](https://www.themoviedb.org/)'s API in a collection view. 
+Movieflix a common iOS Developer take-home project example. The basic requirements for the app are to display movie data from [themoviedb.org](https://www.themoviedb.org/)'s API in a collection view. 
 
 ## Why?
 My intention here is to give the more jr. ios community, or those looking to interview for a new position, a good example of building out a simple app that is well tested and adhere's to principles like SOLID.
